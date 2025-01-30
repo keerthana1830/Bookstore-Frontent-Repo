@@ -7,7 +7,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
-
+  //navigate to login page after signup
   const handleSignup = async (e) => {
     e.preventDefault();
     try {

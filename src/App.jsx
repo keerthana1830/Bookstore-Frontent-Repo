@@ -16,7 +16,7 @@ const App = () => {
   // Sync cart data from backend when the app loads
   useEffect(() => {
     axios
-      .get("http://localhost:3000/cart")
+      .get("https://bookstore-backend-repo.onrender.com/cart")
       .then((response) => setCartItems(response.data))
       .catch((err) => console.error("Error fetching cart data:", err));
   }, []);

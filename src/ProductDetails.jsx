@@ -13,15 +13,18 @@ const ProductDetails = ({ cartItems, setCartItems }) => {
   const handleAddToCart = async () => {
     try {
       const { id, title, author, description, price, coverImage } = product;
-      const response = await axios.post("http://localhost:3000/cart", {
-        id,
-        title,
-        author,
-        description,
-        price,
-        coverImage,
-        quantity: 1,
-      });
+      const response = await axios.post(
+        "https://bookstore-backend-repo.onrender.com/cart",
+        {
+          id,
+          title,
+          author,
+          description,
+          price,
+          coverImage,
+          quantity: 1,
+        }
+      );
       setCartItems((prevItems) => [...prevItems, response.data]);
       alert(`${response.data.title} has been added to your cart!`);
     } catch (error) {

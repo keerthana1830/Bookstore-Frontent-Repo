@@ -7,14 +7,16 @@ const Cart = ({ cartItems, setCartItems }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/cart")
+      .get("https://bookstore-backend-repo.onrender.com/cart")
       .then((response) => setCartItems(response.data))
       .catch((error) => console.error("Error fetching cart:", error));
   }, []);
 
   const handleRemoveFromCart = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/cart/${id}`);
+      await axios.delete(
+        `https://bookstore-backend-repo.onrender.com/cart/${id}`
+      );
       setCartItems(cartItems.filter((item) => item.id !== id));
     } catch (error) {
       console.error("Error removing item from cart:", error);
@@ -30,7 +32,7 @@ const Cart = ({ cartItems, setCartItems }) => {
 
   const handleProceedToCheckout = async () => {
     try {
-      await axios.post("http://localhost:3000/checkout");
+      await axios.post("https://bookstore-backend-repo.onrender.com/checkout");
       setCartItems([]);
       alert("Checkout successful!");
       navigate("/");

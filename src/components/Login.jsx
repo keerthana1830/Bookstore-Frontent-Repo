@@ -11,10 +11,13 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://bookstore-backend-repo.onrender.com/login",
+        {
+          email,
+          password,
+        }
+      );
 
       // Store JWT Token in localStorage
       localStorage.setItem("token", response.data.token);

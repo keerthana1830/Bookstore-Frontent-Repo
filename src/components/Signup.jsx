@@ -22,7 +22,7 @@ const Signup = () => {
       console.log("Sign up success");
 
       setTimeout(() => {
-        navigate("/login");
+        navigate("/products");
       }, 2000);
     } catch (error) {
       setMessage(error.response?.data?.message || "Error signing up");
